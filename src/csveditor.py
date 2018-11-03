@@ -1,12 +1,13 @@
 import csv
 
-def createCSV():
+def create_csv():
 	fields=['second', 'result']
-	with open(r'results.csv', 'a') as f:
+	with open(r'results.csv', 'w') as f:
 	    writer = csv.writer(f)
 	    writer.writerow(fields)
-def editCSV(second,result):
+
+def edit_csv(second,result):
 	fields=[second, result]
 	with open(r'results.csv', 'a') as f:
-	    writer = csv.writer(f)
-	    writer.writerow(fields)
+		writer = csv.writer(f)
+		writer.writerow(fields)

@@ -23,7 +23,7 @@ print("[INFO] loading encodings...")
 data = pickle.loads(open(args["encodings"], "rb").read())
 
 # load the input image and convert it from BGR to RGB
-image = cv2.imread(args["image"])
+image = cv2.imread('/face_recon/datasets/test/top-gun-example-01.jpg')
 rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # detect the (x, y)-coordinates of the bounding boxes corresponding
@@ -75,6 +75,10 @@ for ((top, right, bottom, left), name) in zip(boxes, names):
 	cv2.putText(image, name, (left, y), cv2.FONT_HERSHEY_SIMPLEX,
 		0.75, (0, 255, 0), 2)
 
+# Save image
+filename = '../data/test/result.png'
+cv2.imwrite(filename, image)
 # show the output image
-cv2.imshow("Image", image)
-cv2.waitKey(0)
+# cv2.imshow("Image", image)
+# cv2.waitKey(0)
+cv2.destroyAllWindows()
