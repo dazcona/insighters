@@ -29,4 +29,5 @@ if [ ! -f "$encodings" ]; then
 fi
 
 # FACE DETECTOR
-python main.py --video '../data/clip_01.mp4' --encodings "$encodings" --detection-method 'hog'
+echo "Face Detector on a Video"
+python main.py --video '../data/video1.mp4' --encodings "$encodings" --detection-method 'hog'
