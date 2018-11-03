@@ -11,7 +11,7 @@ import argparse
 import requests
 import cv2
 import os
-import time from time
+from time import time
 
 tic = time()
 
