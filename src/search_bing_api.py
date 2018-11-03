@@ -74,7 +74,7 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 
 			# build the path to the output image
 			ext = v["contentUrl"][v["contentUrl"].rfind("."):]
-			filename = ext.split('?')[0]['&'][0]
+			filename = ext.split('?')[0].split('&')[0]
 			p = os.path.sep.join([args["output"], "{}{}".format(
 				str(total).zfill(8), filename)])
 		
