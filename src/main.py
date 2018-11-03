@@ -3,13 +3,15 @@
 
 import os
 import cv2
-import time
+from time import time
 import argparse
 import random
 import pickle
 from csveditor import create_csv, edit_csv
 from box import create_boxes
 from recognize import recognize_face
+
+tic = time()
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-v", "--video", required=True,
@@ -52,9 +54,9 @@ while success:
 		# cv2.imwrite(filename, image)
 		
 		# Bouding Boxes
-		image_boxed = create_boxes(data, image, args["detection_method"])
-		filename = '../data/test/{:04d}.png'.format(second)
-		cv2.imwrite(filename, image)
+		#image_boxed = create_boxes(data, image, args["detection_method"])
+		#filename = '../data/test/{:04d}.png'.format(second)
+		#cv2.imwrite(filename, image)
 
 		# Is our subject?
 		result = recognize_face(data, image, args["detection_method"])
@@ -66,3 +68,7 @@ while success:
 	success, image = video.read()
 	# print 'Read a new frame: ', success
 	count += 1
+
+toc = time()
+
+print('%d seconds took to run' % (toc - tic))
