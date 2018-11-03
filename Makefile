@@ -1,4 +1,4 @@
 build:
-	docker-compose build
+	docker-compose -f docker/docker-compose.yml build
 run:
-	docker-compose run face_recon bash
+	docker-compose -f docker/docker-compose.yml run face_recon bash
