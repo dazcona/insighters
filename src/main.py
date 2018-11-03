@@ -41,7 +41,7 @@ fps = int(video.get(cv2.CAP_PROP_FPS))
 while success:
 	
 	if count % fps == 0: # every second
-		
+
 		# Second
 		second = count / fps
 
@@ -62,7 +62,7 @@ while success:
 		
 		# Write!
 		edit_csv(second, result)
-	
+
 	# Keep reading!
 	success, image = video.read()
 	# print 'Read a new frame: ', success
