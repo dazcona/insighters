@@ -15,3 +15,5 @@ RUN pip install \
 face_recognition \
 imutils \
 opencv-python
+
+RUN pip install requests

@@ -3,3 +3,4 @@ opencv/
 .vscode/
 env*/
 .DS_Store
+commands.md
