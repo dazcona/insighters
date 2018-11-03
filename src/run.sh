@@ -18,10 +18,8 @@ if [ ! -d "$output" ]; then
     echo "Calling CRAWLER"
     mkdir -p "$output"
     # Run!
-    python search_bing_api.py --query "\"$name\"" --output "$output"
+    python crawl.py --query "\"$name\"" --output "$output"
 fi
-
-exit 1
 
 # FACE ENCODER
 encodings="../data/encodings/$name_dir.pickle"

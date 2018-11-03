@@ -9,3 +9,4 @@ src/frames/*
 data/test
 *.pyc
 data/images/
+data/encodings/
