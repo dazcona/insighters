@@ -1,0 +1,5 @@
+data/
+opencv/
+.vscode/
+env/
+.DS_Store
