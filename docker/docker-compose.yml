@@ -1,4 +1,4 @@
-version: '3'
+version: '2.3'
 
 services:
 
@@ -9,4 +9,9 @@ services:
     build: .
     volumes:
       - ../src:/face_recon
+      - ../data:/data
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=unix$DISPLAY
+    runtime: nvidia
 
