@@ -20,6 +20,7 @@ args = vars(ap.parse_args())
 create_csv()
 
 count = 0
+second = 0
 success = True
 video = cv2.VideoCapture('../data/video1.mp4')
 success, image = video.read()
@@ -29,9 +30,10 @@ if not os.path.exists('frames'):
 	os.mkdir('frames')
 
 while success:
-
 	if count % int(fps) == 0:
-		edit_csv(count/int(fps), recognize(args['encodings'],'/face_recon/frames/frame%d.jpg' % count,args["detection_method"],count))
+		second += 1
+		cv2.imwrite('frames/frame%d.jpg' % second, image)
+		edit_csv(count/int(fps), recognize(args['encodings'],'/face_recon/frames/frame%d.jpg' % second,args["detection_method"],count))
 
 	success,image = video.read()
 	print 'Read a new frame: ', success
