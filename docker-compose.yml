@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  face_recon:
+    image: face_recon
+    container_name: face_recon
+    working_dir: /face_recon
+    build: .
+    volumes:
+      - ../src:/face_recon
+
