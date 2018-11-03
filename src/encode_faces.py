@@ -8,6 +8,9 @@ import argparse
 import pickle
 import cv2
 import os
+from time import time
+
+tic = time()
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -60,3 +63,7 @@ data = {"encodings": knownEncodings, "names": knownNames}
 f = open(args["encodings"], "wb")
 f.write(pickle.dumps(data))
 f.close()
+
+toc = time()
+
+print('%d seconds took to run' % (toc - tic))

@@ -11,6 +11,9 @@ import argparse
 import requests
 import cv2
 import os
+import time from time
+
+tic = time()
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -101,3 +104,7 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 
 		# update the counter
 		total += 1
+
+toc = time()
+
+print('%d seconds took to run' % (toc - tic))
