@@ -74,8 +74,9 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 
 			# build the path to the output image
 			ext = v["contentUrl"][v["contentUrl"].rfind("."):]
+			filename = ext.split('?')[0]['&'][0]
 			p = os.path.sep.join([args["output"], "{}{}".format(
-				str(total).zfill(8), ext.split('?')[0])])
+				str(total).zfill(8), filename)])
 		
 			# write the image to disk
 			f = open(p, "wb")

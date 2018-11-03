@@ -8,3 +8,4 @@ data/hackathon-2018-team-3
 src/frames/*
 data/test
 *.pyc
+data/images/

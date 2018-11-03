@@ -37,10 +37,6 @@ success, image = video.read()
 count = 0
 fps = int(video.get(cv2.CAP_PROP_FPS))
 
-# Frames dir
-# if not os.path.exists('frames'):
-# 	os.mkdir('frames')
-
 # Loop through the frames
 while success:
 	
@@ -48,18 +44,21 @@ while success:
 		
 		# Second
 		second = count / fps
-		
-		# Write frame
-		# filename = os.path.join('frames', 'frame_%d.jpg' % second)
-		# cv2.imwrite(filename, image)
+
+		# Resizing
+		image = cv2.resize(image, (0,0), fx=0.25, fy=0.25)
 		
 		# Bouding Boxes
 		#image_boxed = create_boxes(data, image, args["detection_method"])
 		#filename = '../data/test/{:04d}.png'.format(second)
-		#cv2.imwrite(filename, image)
+		#cv2.imwrite(filename, image_boxed)
 
 		# Is our subject?
-		result = recognize_face(data, image, args["detection_method"])
+		result, boxed_image = recognize_face(data, image, args["detection_method"])
+
+		# Save boxed image
+		filename = '../data/test/{:04d}.png'.format(second)
+		cv2.imwrite(filename, boxed_image)
 		
 		# Write!
 		edit_csv(second, result)
