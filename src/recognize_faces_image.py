@@ -1,5 +1,5 @@
 # USAGE
-# python recognize_faces_image.py --encodings encodings.pickle --image datasets/test/top-gun-example-02.jpg --detection-method hog
+# python recognize_faces_image.py --encodings encodings.pickle --image frames/frame261.jpg --detection-method hog
 
 # import the necessary packages
 import face_recognition
@@ -23,7 +23,7 @@ print("[INFO] loading encodings...")
 data = pickle.loads(open(args["encodings"], "rb").read())
 
 # load the input image and convert it from BGR to RGB
-image = cv2.imread('/face_recon/datasets/test/top-gun-example-01.jpg')
+image = cv2.imread(args["image"])
 rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # detect the (x, y)-coordinates of the bounding boxes corresponding
@@ -76,7 +76,7 @@ for ((top, right, bottom, left), name) in zip(boxes, names):
 		0.75, (0, 255, 0), 2)
 
 # Save image
-filename = '../data/test/result.png'
+filename = '../data/result.png'
 cv2.imwrite(filename, image)
 # show the output image
 # cv2.imshow("Image", image)
