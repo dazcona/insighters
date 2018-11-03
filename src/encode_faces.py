@@ -1,5 +1,5 @@
 # USAGE
-# python encode_faces.py --dataset dataset --encodings encodings.pickle
+# python encode_faces.py --dataset /data --encodings encodings.pickle --detection-method hog
 
 # import the necessary packages
 from imutils import paths

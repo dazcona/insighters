@@ -1,10 +1,9 @@
 # USAGE
-# python search_bing_api.py --query "alan grant" --output dataset/alan_grant
-# python search_bing_api.py --query "ian malcolm" --output dataset/ian_malcolm
-# python search_bing_api.py --query "ellie sattler" --output dataset/ellie_sattler
-# python search_bing_api.py --query "john hammond jurassic park" --output dataset/john_hammond
-# python search_bing_api.py --query "owen grady jurassic world" --output dataset/owen_grady
-# python search_bing_api.py --query "claire dearing jurassic world" --output dataset/claire_dearing
+# python search_bing_api.py --query "tom cruise" --output dataset/tom
+# python search_bing_api.py --query "pikachu" --output dataset/pikachu
+# python search_bing_api.py --query "squirtle" --output dataset/squirtle
+# python search_bing_api.py --query "bulbasaur" --output dataset/bulbasaur
+# python search_bing_api.py --query "mewtwo" --output dataset/mewtwo
 
 # import the necessary packages
 from requests import exceptions
@@ -24,20 +23,12 @@ args = vars(ap.parse_args())
 # set your Microsoft Cognitive Services API key along with (1) the
 # maximum number of results for a given search and (2) the group size
 # for results (maximum of 50 per request)
-API_KEY = "INSERT_YOUR_API_KEY_HERE"
-MAX_RESULTS = 100
+API_KEY = "675cb893a67d407baba69722b9bb8ea5"
+MAX_RESULTS = 250
 GROUP_SIZE = 50
 
 # set the endpoint API URL
 URL = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
-
-# when attemping to download images from the web both the Python
-# programming language and the requests library have a number of
-# exceptions that can be thrown so let's build a list of them now
-# so we can filter on them
-EXCEPTIONS = set([IOError, FileNotFoundError,
-	exceptions.RequestException, exceptions.HTTPError,
-	exceptions.ConnectionError, exceptions.Timeout])
 
 # store the search term in a convenience variable then set the
 # headers and search parameters
@@ -84,8 +75,8 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 			# build the path to the output image
 			ext = v["contentUrl"][v["contentUrl"].rfind("."):]
 			p = os.path.sep.join([args["output"], "{}{}".format(
-				str(total).zfill(8), ext)])
-
+				str(total).zfill(8), ext.split('?')[0])])
+		
 			# write the image to disk
 			f = open(p, "wb")
 			f.write(r.content)
@@ -94,11 +85,8 @@ for offset in range(0, estNumResults, GROUP_SIZE):
 		# catch any errors that would not unable us to download the
 		# image
 		except Exception as e:
-			# check to see if our exception is in our list of
-			# exceptions to check for
-			if type(e) in EXCEPTIONS:
-				print("[INFO] skipping: {}".format(v["contentUrl"]))
-				continue
+			print("[INFO] skipping: {}".format(v["contentUrl"]))
+			continue
 
 		# try to load the image from disk
 		image = cv2.imread(p)

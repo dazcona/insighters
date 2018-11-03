@@ -1,11 +1,12 @@
 # USAGE
-# python recognize_faces_image.py --encodings encodings.pickle --image examples/example_01.png 
+# python recognize_faces_image.py --encodings encodings.pickle --image datasets/test/top-gun-example-02.jpg --detection-method hog
 
 # import the necessary packages
 import face_recognition
 import argparse
 import pickle
 import cv2
+import matplotlib as plt
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
