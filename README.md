@@ -1,6 +1,6 @@
 # Huwawei Computer Vision Hackathon
 
-![Insighters @ Hack HUAWEI](https://docs.google.com/presentation/d/1SZblyzHOoXT_XmPT3WtnXgb9WzfqMM7FmELIacHXjYo/)
+[Insighters @ Hack HUAWEI](https://docs.google.com/presentation/d/1SZblyzHOoXT_XmPT3WtnXgb9WzfqMM7FmELIacHXjYo/)
 
 ## Our approach
 1. Use Bing API to download pictures from the celebrity (250 pictures ~ 2 min)
