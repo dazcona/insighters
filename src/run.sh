@@ -18,16 +18,16 @@ if [ ! -d "$output" ]; then
     echo "Calling CRAWLER"
     mkdir -p "$output"
     # Run!
-    python crawl.py --query "\"$name\"" --output "$output"
+    python3 crawl.py --query "\"$name\"" --output "$output"
 fi
 
 # FACE ENCODER
 encodings="../data/encodings/$name_dir.pickle"
 if [ ! -f "$encodings" ]; then
     echo "Developing ENCODINGS"
-    python encode_faces.py --dataset "$output" --encodings "$encodings" --detection-method 'hog'
+    python3 encode_faces.py --dataset "$output" --encodings "$encodings" --detection-method 'hog'
 fi
 
 # FACE DETECTOR
 echo "Face Detector on a Video"
-python main.py --video '../data/video1.mp4' --encodings "$encodings" --detection-method 'hog'
+python3 main.py --video '../data/video1.mp4' --encodings "$encodings" --detection-method 'hog'
