@@ -2,7 +2,6 @@
 import face_recognition
 import argparse
 import cv2
-from IPython import embed
 
 
 def recognize_face(data, image, method):
@@ -14,9 +13,9 @@ def recognize_face(data, image, method):
     boxes = face_recognition.face_locations(rgb, model=method)
 
 	# loop over the recognized faces
-    for (top, right, bottom, left) in boxes:
-        # draw the predicted face name on the image
-        cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 2)
+    #for (top, right, bottom, left) in boxes:
+    #    # draw the predicted face name on the image
+    #    cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 2)
 
     # box encodings
     box_encodings = face_recognition.face_encodings(rgb, boxes)

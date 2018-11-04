@@ -8,7 +8,7 @@ import argparse
 import random
 import pickle
 from csveditor import create_csv, edit_csv
-from box import create_boxes
+#from box import create_boxes
 from recognize import recognize_face
 
 tic = time()
