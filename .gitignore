@@ -4,7 +4,7 @@ env*/
 .DS_Store
 commands.md
 data/video1.mp4
-data/hackathon-2018-team-3
+data/hackathon-2018-team-*
 src/frames/*
 data/test
 *.pyc
