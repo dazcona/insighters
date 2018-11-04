@@ -1,4 +1,4 @@
-# Huwawei Computer Vision Hackathon
+# Huawei Computer Vision Hackathon
 
 [Insighters @ Hack HUAWEI](https://docs.google.com/presentation/d/1SZblyzHOoXT_XmPT3WtnXgb9WzfqMM7FmELIacHXjYo/)
 
