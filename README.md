@@ -1,5 +1,5 @@
 # Huwawei Computer Vision Hackathon
-
+![Alt text](huawei.png)
 ## Our approach
 1. Use Bing API to download pictures from the celebrity (250 pictures ~ 2 min)
 2. Create embeddings (feature vectors) for each of the images collected in our dataset (128-D vectors extracted with CNN) using the official face_recognition library with GPU support (~ 3 min)
@@ -8,3 +8,6 @@
 
 ## Environment
 We worked locally using Docker-Compose and then installed all the libraries manually to the server (Including the DLIB library with CUDA support!), where we spent 70% of the hackathon time :/
+
+![Alt text](cuda1.png)
+![Alt text](cuda2.png)
