@@ -27,7 +27,9 @@ if [ ! -f "$encodings" ]; then
     echo "Developing ENCODINGS"
     python3 encode_faces.py --dataset "$output" --encodings "$encodings" --detection-method 'hog'
 fi
+# python3 encode_faces.py --dataset '../data/images/tom_cruise' --encodings '../data/encodings/tom_cruise.pickle' --detection-method 'hog'
 
 # FACE DETECTOR
 echo "Face Detector on a Video"
 python3 main.py --video '../data/video1.mp4' --encodings "$encodings" --detection-method 'hog'
+# python3 main.py --video '../data/video1.mp4' --encodings ../data/encodings/tom_cruise.pickle --detection-method 'hog'

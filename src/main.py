@@ -57,8 +57,8 @@ while success:
 		result, boxed_image = recognize_face(data, image, args["detection_method"])
 
 		# Save boxed image
-		filename = '../data/test/{:04d}.png'.format(second)
-		cv2.imwrite(filename, boxed_image)
+		#filename = '../data/test/{:04d}.png'.format(second)
+		#cv2.imwrite(filename, boxed_image)
 		
 		# Write!
 		edit_csv(second, result)
